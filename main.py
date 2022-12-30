@@ -9,8 +9,7 @@ file_name = time_stamp + ".png"
 sleep(2)
 def start_point():
     start_point = pt.locateCenterOnScreen("start_point.png", confidence=.8)
-    pt.moveTo(start_point)
-    pt.moveRel(0,250)
+    pt.moveTo(0, 650)
     pt.click()
 
 
@@ -32,8 +31,7 @@ def dl_audio():
             start_point()
         else:
             print("não achei botão de download")
-            pass
-
+            start_point()
 
 
 def check_new_messages():    
@@ -51,6 +49,7 @@ def check_new_messages():
                 try:
                     dl_audio()
                 except:
+                    start_point()
                     print("no audio sent")
         except:
             start_point()
